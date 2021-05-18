@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template
+from werkzeug.utils import redirect
 from flask_debugtoolbar import DebugToolbarExtension
 
 from stories import stories_list
@@ -7,6 +8,7 @@ from stories import stories_list
 app = Flask(__name__)
 
 app.config['SECRET_KEY'] = "hi"
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 debug = DebugToolbarExtension(app)
 
 
@@ -30,3 +32,8 @@ def show_story_output(story_title):
     
     story_title_disp = story_title.replace('_', ' ')
     return render_template('story.html', story_text=story_text, story_title_disp=story_title_disp)
+
+@app.route('/', methods=["POST"])
+def redirect_to_story():
+    story_title = request.form["story-select"]
+    return redirect(f'/{story_title}')
