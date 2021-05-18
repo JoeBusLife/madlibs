@@ -1,0 +1,21 @@
+#logo{
+	margin: 0px 20px;
+}
+
+h1 a{
+	text-decoration: none;
+	font-size: 3em;
+	opacity: 100;
+	background: rgb(112,9,121);
+	background: linear-gradient(180deg, rgb(82, 8, 90) 0%, rgb(0, 167, 223) 100%);
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#content{
+	margin: 40px 60px;
+}
+
+p{
+	font-size: 1.25em;
+}

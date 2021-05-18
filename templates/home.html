@@ -1,0 +1,14 @@
+{% extends 'base.html'  %}
+{% block title %}Madlibs{% endblock %}
+
+{% block content %}
+<h1>Pick a story</h1>
+<form action="/" id="pick-story-form">
+  <select id="story-select" name="story-select">
+		{% for story_title in story_titles %}
+  	<option value="{{story_title}}">{{story_title.replace('_', ' ')}}</option>
+		{% endfor %}
+	</select>
+  <button>Submit!</button>
+</form>
+{% endblock %}
